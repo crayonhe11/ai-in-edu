@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: inquirylab-demo
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "10000"
+      - key: APP_MODE
+        value: demo
+      - key: PUBLIC_DEMO
+        value: "1"
+      - key: DB_PATH
+        value: /tmp/inquiry-data/inquiry.sqlite3
+      - key: TEACHER_PASSWORD
+        generateValue: true
